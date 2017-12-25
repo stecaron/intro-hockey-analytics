@@ -36,7 +36,7 @@ ui <- fluidPage(
                            selected = c("G", "A", "PTS", "TOI_GP", "Hits")),
             selectizeInput(inputId = "team", 
                            "Teams:", 
-                           choices = unique(data_final$Team), 
+                           choices = sort(unique(data_final$Team)), 
                            selected = "MTL", 
                            multiple = TRUE),
             selectizeInput(inputId = "position", 
