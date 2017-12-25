@@ -49,19 +49,23 @@ ui <- fluidPage(
        plotOutput("clusterElbow")
      )
    ),
+   hr(),
    fluidRow(
      plotOutput("clusterPlot") 
      ),
    hr(),
    fluidRow(
-     selectizeInput(inputId = "x_axis", 
-                 label = "x-asis variable:", 
-                 choices = c("G", "A", "PTS", "TOI_GP", "Hits"),
-                 multiple = FALSE),
-     selectizeInput(inputId = "y_axis", 
-                 label = "y-asis variable:",
-                 choices = c("G", "A", "PTS", "TOI_GP", "Hits"),
-                 multiple = FALSE)
+     column(2,
+            selectizeInput(inputId = "x_axis", 
+                           label = "x-asis variable:", 
+                           choices = c("G", "A", "PTS", "TOI_GP", "Hits"),
+                           multiple = FALSE)
+            ),
+     column(2,
+            selectizeInput(inputId = "y_axis", 
+                           label = "y-asis variable:",
+                           choices = c("G", "A", "PTS", "TOI_GP", "Hits"),
+                           multiple = FALSE))
    )
 )
 
