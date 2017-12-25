@@ -101,6 +101,7 @@ server <- function(input, output, session) {
       rename(
         cluster = V2
       )
+    data_output[, cluster := as.factor(cluster)]
   })
   
   clusters_analysis <- reactive({
@@ -126,7 +127,7 @@ server <- function(input, output, session) {
   })
   
   output$clusterPlot <- renderPlot({
-    ggplot(data_output(), aes_string(x = axis()$x, y = axis()$y, label = "Last_Name", color = as.factor("cluster"))) +
+    ggplot(data_output(), aes_string(x = axis()$x, y = axis()$y, label = "Last_Name", color = "cluster")) +
       geom_label() +
       theme_classic() +
       theme(legend.position = "none")
