@@ -15,6 +15,10 @@ The data used for this analysis has been extracted from this [site](http://www.h
 
 This folder contains all R scripts used for this project.
 
+# documentation
+
+Here we explain in more details the methods and concepts used throughout this project. 
+
 # packrat
 
 This folder contains all packages used for this project.
