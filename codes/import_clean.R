@@ -80,5 +80,9 @@ data_final <- data_renamed %>%
 
 # Prepare data for clustering ---------------------------------------------
 
-# We also need to replace missing by 0 (we make it simple)
+# We need to replace missing by 0 (we make it simple)
 data_final[is.na(data_final)] <- 0
+# We also need to normalize our data
+data_final <- cbind(data_final[, 1:7], scale(data_final[, 8:ncol(data_final)]))
+
+
