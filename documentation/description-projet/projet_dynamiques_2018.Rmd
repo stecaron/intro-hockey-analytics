@@ -40,11 +40,11 @@ Actuariat:
 Comme mentionné dans la section précédente, ce projet consiste en une brève introduction à certaines méthodes statistiques s'appliquant à des problèmes concrèts. Le concept principal introduit dans ce projet s'apelle le "clustering". Le [clustering](http://bigdata-madesimple.com/what-is-clustering-in-data-mining/) est une méthode statistique permettant de regrouper des données dans différents groupes partageant des caractéristiques similaires. Il existe plusieurs méthodes de clustering, basées sur différents algorithmes, qui permettent d'obtenir différents résultats dépendemment du contexte. Ces méthodes sont fréquemment utilisées dans ces différents domaines pour plusieurs raisons:
 
 - Marketing:
-    - Segmentation de la clientèle selon différentes caractéristiques
-    - haha
+    - 
+    - 
 - Finance:
-    - Actions
-    - Bourse
+    - Regroupement d'actions présentant des caractéristiques similaires (diversification)
+    - Établissement d'une cote de crédit ou d
 
 ## Description des données
 
