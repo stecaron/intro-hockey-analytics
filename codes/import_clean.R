@@ -16,7 +16,7 @@ data_raw <- fread("data/raw/All Sits-Table 1.csv", skip = 2)
 # Select variables --------------------------------------------------------
 
 variables_selected <- c("First Name", "Last Name", "Position", "Team", "GP", "G", "A", "PTS", "TOI/GP", "G.Bkhd", "G.Dflct", "G.Slap", "G.Snap", "G.Tip", "G.Wrap", "G.Wrst", "GA", "S.Bkhd", "S.Dflct", "S.Slap", "S.Snap", "S.Tip", "S.Wrap", "S.Wrst", "+/-", "iBLK", "iHF", "A1", "A2", "Wide", "1G", "GWG", "iGVA", "iTKA", "PIM")
-data_selected <- data_raw[, (variables_selected), with = F]
+data_selected <- data_raw[, (variables_selected), with = FALSE]
 
 
 # Clean the data  -----------------------------------------------
