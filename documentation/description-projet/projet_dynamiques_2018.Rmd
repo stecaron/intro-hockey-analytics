@@ -2,7 +2,7 @@
 title: "Description du projet"
 author: "Stéphane Caron"
 date: '2018-01-01'
-abstract: "Ce document a pour but d'expliquer le projet travaillé par trois joueurs de l'équipe de hockey des Dynamiques du Cégep de Sainte-Foy. Le projet consiste en une brève introduction aux statistiques, à la programmation et aux techniques d'apprentissage automatique permettant de résoudre des problèmes concrèts."
+abstract: "Ce document a pour but d'expliquer le projet qui sera travaillé par des joueurs de l'équipe de hockey des Dynamiques du Cégep de Sainte-Foy (2018). Le projet proprement dit est une brève introduction aux statistiques, à la programmation et aux techniques d'apprentissage automatique permettant de résoudre des problèmes concrets."
 output: 
   pdf_document:
     toc: true
@@ -14,42 +14,43 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Mise en contexte
 
-Ce projet a été réalisé dans le cadre du programme de "tutorat", mis en place par Christian Larue, entraîneur des Dynamiques du Cégep Sainte-Foy. Le programme a pour but de présenter aux joueurs actuels de l'équipe différents domaines dans lesquels certains anciens joueurs oeuvrent actuellement.
+Ce projet sera réalisé dans le cadre du programme de "tutorat" mis en place par Christian Larue, entraîneur de l'équipe. Le programme a pour but de présenter aux joueurs actuels de l'équipe différents domaines dans lesquels certains anciens joueurs oeuvrent actuellement.
 
-Ce projet spécifique permet de donner une brève introduction aux domaines des mathématiques et statistiques, en plus de toucher à plusieurs concepts en lien avec la programmation et l'analyse de données. Ces concepts peuvent s'appliquer à plusieurs autres domaines, notamment l'informatique et l'actuariat. Pour plus d'informations sur ces domaines en particulier, voici quelques liens pertinents:
+Ce projet spécifique permet de donner une brève introduction aux domaines des mathématiques et des statistiques, en plus de toucher à plusieurs concepts en lien avec la programmation et l'analyse de données. Ces concepts peuvent évidemment s'appliquer à plusieurs autres domaines, notamment l'informatique et l'actuariat. Pour plus d'informations sur ces domaines en particulier, voici quelques liens pertinents:
 
 Mathématiques et statistiques:
 
-- [Département de mathématiques et statistique de l'Université Laval](https://www.mat.ulaval.ca/accueil/)
-- [Data science and statistics jobs](https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century)
+- [*Département de mathématiques et statistique de l'Université Laval*](https://www.mat.ulaval.ca/accueil/)
+- [*Data science and statistics jobs*](https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century)
 
 Informatique et programmation:
 
-- [Département d'informatique et génie logiciel de l'Université Laval](https://www.ift.ulaval.ca/accueil/)
-- [McGill School of Computer Science](https://www.cs.mcgill.ca)
-- [Data science and analytics in sports](http://onlinedsa.merrimack.edu/how-data-science-and-analytics-changing-sports/)
+- [*Département d'informatique et génie logiciel de l'Université Laval*](https://www.ift.ulaval.ca/accueil/)
+- [*McGill School of Computer Science*](https://www.cs.mcgill.ca)
+- [*Data science and analytics in sports*](http://onlinedsa.merrimack.edu/how-data-science-and-analytics-changing-sports/)
 
 Actuariat:
 
-- [École d'actuariat de l'Université Laval](https://www.act.ulaval.ca/accueil/)
-- [Society of actuaries](https://www.soa.org/canada/)
-- [Casualty actuarial society](http://www.casact.org)
+- [*École d'actuariat de l'Université Laval*](https://www.act.ulaval.ca/accueil/)
+- [*Society of Actuaries*](https://www.soa.org/canada/)
+- [*Casualty Actuarial Society*](http://www.casact.org)
 
 ## Description du projet
 
-Comme mentionné dans la section précédente, ce projet consiste en une brève introduction à certaines méthodes statistiques s'appliquant à des problèmes concrèts. Le concept principal introduit dans ce projet s'appelle le "clustering". Le [*clustering*](http://bigdata-madesimple.com/what-is-clustering-in-data-mining/) est une méthode statistique permettant de regrouper des données dans différents groupes partageant des caractéristiques similaires. Il existe plusieurs méthodes de clustering, basées sur différents algorithmes, qui permettent d'obtenir différents résultats dépendemment du contexte. Ces méthodes sont fréquemment utilisées dans plusieurs contextes dans ces différents domaines:
+Comme mentionné dans la section précédente, ce projet a pour but de faire une brève introduction à certaines méthodes mathématiques et statistiques s'appliquant à des problèmes concrets. Le concept principal mis de l'avant dans ce projet s'appelle le "clustering". Le [*clustering*](http://bigdata-madesimple.com/what-is-clustering-in-data-mining/) est une méthode statistique permettant de regrouper des données dans différents groupes partageant des caractéristiques similaires à l'intérieur du groupe, mais différentes de celles des autres groupes. Il existe plusieurs méthodes de clustering, basées sur différents algorithmes, qui permettent d'obtenir des résultats distincts dépendemment du contexte. Ces méthodes ont plusieurs applications dans ces différents domaines:
 
 - Marketing:
-    - Pour la segmentation de marché et l'analyse de prospects potentiels.
-    - Pour la rétention de clients actuels.
+    - Pour faire la segmentation d'un marché et l'analyse de prospects potentiels.
+    - Pour définir certaines caractéristiques des clients "perdus" et ainsi améliorer la rétention d'une clientèle.
     - Pour l'analyse géographique de marchés potentiels.
 - Finance:
-    - Regroupement d'actions présentant des caractéristiques similaires (gestion de portefeuille).
-    - Établissement de caractéristiques pour identifier de potentiels non-payeurs.
+    - Pour faire le regroupement d'actions présentant des caractéristiques similaires et ainsi améliorer la diversité d'un portefeuille.
+    - Pour établir certaines caractéristiques communes de clients qui ne remboursent par leurs dettes (enquête de crédit).
 - Médecine:
-    - Recherche de caractéristiques présents chez un type de patient.
+    - Pour la recherche de caractéristiques présents chez les patients contractant un certain virus.
+    - Pour la gestion des dépenses médicales (personnels, équipements, investissements, etc) en lien avec le type de demande de certains établissements médicaux.
 
-Dans ce projet, nous utiliserons une méthode de clustering précise, la méthode k-means (qui est décrite un peu plus loin), pour établir des styles de joueurs de hockey. En effet, nous utiliserons des statistiques de joueurs de hockey de la LNH (section suivante) pour établir des groupes de joueurs partageant des caractéristiques similaires selon certaines statistiques.
+Dans ce projet, nous utiliserons une méthode de clustering précise, la méthode k-means. Cette méthode est décrite plus en détails dans les prochaines sections. Nous utiliserons cette méthode pour établir des styles de joueurs de hockey. En effet, nous utiliserons des statistiques de joueurs de hockey de la LNH pour établir des groupes de joueurs partageant des caractéristiques similaires selon ces mêmes statistiques.
 
 ## Description des données
 
@@ -59,37 +60,33 @@ Le jeu de données correspond aux statistiques individuelles des joueurs de la L
 
 ### Nettoyage des données
 
-Une étape pratiquement inévitable dans l'analyse de données et dans l'application de la grande majorité des méthodes statistiques consiste a nettoyer les données. Dans notre situation, nous devrons réaliser certaines de ces étapes:
+Une étape inévitable dans l'analyse de données et dans l'application de la grande majorité des méthodes statistiques consiste à nettoyer et préparer les données. Dans notre situation, nous devrons réaliser certaines de ces étapes:
 
-- Sélectionner les données pertinentes
-- Corriger certaines données
-- Gérer les données manquantes
+- Sélectionner les données pertinentes.
+- Modifier certaines données pour les rendre adaptées à notre analyse.
+- Faire la gestion des données manquantes.
 - Etc
 
 ## Méthodologie
 
-Une fois que les données sont nettoyées et prêtes pour l'analyse, il faut maintenant passer à l'étape d'appliquer notre algorithme d'analyse, soit notre algorithme de clustering.
+Une fois que les données sont nettoyées et prêtes pour l'analyse, il faut maintenant passer à l'étape d'appliquer notre algorithme et de procéder à l'analyse. Avant tout, il est important de comprendre le fonctionnement de l'algorithme.
 
 ### Méthode k-means
 
-La méthode de clustering introduite dans ce projet se nomme la méthode k-means. Cette méthode se base sur le fait que le nombre de groupes est connu (ou supposé) d'avance. Cela peut paraître contre-intuitif de déterminer un nombre de groupes à l'avance mais nous verrons un peu plus loin qu'il est possible après coup de trouver un nombre de groupes "optimal".
+La méthode de clustering introduite dans ce projet se nomme la méthode k-means. Cette méthode se base sur le fait que le nombre de groupes (k) à determiner est connu (ou supposé) d'avance. Cela peut paraître contre-intuitif de déterminer un nombre de groupes à l'avanc, mais nous verrons un peu plus loin qu'il est possible après coup de trouver un nombre de groupes "optimal".
 
 En résumé, l'algorithme fonctionne comme suit:
 
-1. On initialise les groupes, principalement de deux façcons:
-    - On associe aléatoirement chacune des données à un groupe.
-    - On détermine aléatoirement des valeurs de centroïde (ou valeur centrale) pour chacun des groupes (dans ce cas-ci on passe directement à l'étape 3).
-2. On détermine le centroïde de chacun des groupes.
-3. Pour chacune des données, on attribue le groupe pour lequel la valeur du centroïde est le plus près* de la donnée. 
+1. On commence par initialiser aléatoirement les groupes.
+2. On détermine le centroïde de chacun des groupes. Le centroïde correspond à la valeur centrale de chacun des groupes.
+3. Pour chacune des données, on attribue celle-ci au groupe correspondant au centroïde le plus près. Pour déterminer quel centroïde est le plus "près", il faut se définir une mesure de distance. Dans le cas le plus fréqeuent, on utilise la distance euclidienne, soit la longueur du trajet entre deux points.
 4. On réitère les étapes 2 et 3 jusqu'à temps que les groupes ne changent pratiquement plus.
-
-* Pour déterminer quel centroïde est le plus "près", il faut se définir une mesure de distance. Dans le cas le plus fréqeuent, on utilise la distance euclidienne, soit la longueur du trajet entre deux points.
 
 Voici un exemple en deux dimensions qui illustre les étapes décrites un peu plus haut.
 
 #### Étape 0
 
-Voici le jeu de données (example) dont nous voulons appliquer notre méthode de clustering. On remarque rapidement qu'il semble avoir 3 groupes apparents.
+Voici le jeu de données (exemple) dont nous voulons appliquer notre méthode de clustering. On remarque rapidement qu'il semble avoir 3 groupes apparents.
 
 ```{r etape, echo=FALSE}
 library(ggplot2)
@@ -99,8 +96,9 @@ group1 <- list(x = runif(n = 10, min = 0.8, max = 1), y = runif(n = 10, min = 0.
 group2 <- list(x = runif(n = 10, min = 0.5, max = 0.8), y = runif(n = 10, min = 0.5, max = 0.8))
 group3 <- list(x = runif(n = 10, min = 0.3, max = 0.4), y = runif(n = 10, min = 0.3, max = 0.4))
 group <- as.factor(sample(x = c(1, 2, 3), size = 10, replace = TRUE))
-data <- data.frame(x = c(group1$x, group2$x, group3$x), y = c(group1$y, group2$y, group3$y), groupe = group)
+data_init <- data.frame(x = c(group1$x, group2$x, group3$x), y = c(group1$y, group2$y, group3$y), groupe = group)
 
+data <- data_init
 ggplot(data, aes(x = x, y = y)) +
   geom_point() +
   theme(legend.position = "none")
@@ -109,7 +107,7 @@ ggplot(data, aes(x = x, y = y)) +
 
 #### Étape 1
 
-On initialise l'algorithme. Ici, on attribue aléatoirement chacune des données à un groupe. Dans le cas ci-dessus, en analysant la distribution des données, on commence en définissant 3 groupes (k = 3). 
+On initialise l'algorithme. Ici, on attribue aléatoirement chacune des données à un groupe. Dans le cas ci-dessus on commence en définissant 3 groupes (k = 3). 
 
 ```{r etape1, echo=FALSE}
 ggplot(data, aes(x = x, y = y, color = groupe)) +
@@ -119,7 +117,7 @@ ggplot(data, aes(x = x, y = y, color = groupe)) +
 
 #### Étape 2
 
-On trouve le centroïde de chacun des groupes (triangle).
+On trouve le centroïde, ou la valeur centrale, de chacun des groupes. Ces valeurs sont illustrées par des triangles. Les points ronds sont les données que nous voulons groupées bien sûr.
 
 ```{r etape2, echo=FALSE, message=FALSE, warning=FALSE}
 library(dplyr)
@@ -133,7 +131,7 @@ ggplot(data, aes(x = x, y = y, color = groupe)) +
 
 #### Étape 3
 
-On associe chaque donnée au groupe pour lequel cette donnée est la plus près du centroïde.
+Pour chaque donnée, on attribue le groupe correspondant au groupe du centroïde le plus près de celle-ci.
 
 ```{r etape3, echo=FALSE}
 temp <- data.frame(groupe = rep(NA_integer_, 3), distance = rep(NA_real_, 3))
@@ -166,7 +164,7 @@ ggplot(data, aes(x = x, y = y, color = groupe)) +
 
 #### Étape 5 
 
-Comme à l'étape 3, on associe chaque donnée au groupe pour lequel cette donnée est la plus près du centroïde.
+Comme à l'étape 3, on attribue le groupe correspondant au groupe du centroïde le plus près de chaque donnée.
 
 ```{r etape5, echo=FALSE}
 temp <- data.frame(groupe = rep(NA_integer_, 3), distance = rep(NA_real_, 3))
@@ -186,32 +184,51 @@ ggplot(data, aes(x = x, y = y, color = groupe)) +
 
 #### Étape 6
 
-On recommence les deux dernières étapes jusqu'à temps que les groupes soient fixes, soit lorsqu'une itération additionnelle ne provoque aucun changement dans les groupes. Pour déterminer quand il est souhaitable d'arrêter l'algorithme, on peut décider que si les groupes demeurent inchangés aprèes 5 ou 10 itérations, on arrête.
+On recommence les deux dernières étapes jusqu'à temps que les groupes soient stables. Pour déterminer quand les groupes sont stables et quand il est souhaitable d'arrêter l'algorithme, on peut décider, par exemple, que si les groupes demeurent inchangés après 5 ou 10 itérations, on arrête.
 
-Ce [site](http://www.onmyphd.com/?p=k-means.clustering) constitut un bel example supplémentaire de comment l'algorithme fonctionne à chaque itération.
+Ce [*site*](http://www.onmyphd.com/?p=k-means.clustering) constitut un bel example supplémentaire de comment l'algorithme fonctionne à chaque itération.
 
 ### Choix du nombre de groupes
 
-Comme mentionné un peu plus tôt, il peut paraître contre-intuitif de définir le nombre de groupes avant même de commencer l'analyse. Dans l'exemple décrit un peu plus haut, il était relativement facile de voir les 3 groupes apparents. Toutefois, il n'est pas toujours aussi aisé de voir de tels groupes ou il peut être difficle de les visualiser dans des situations ayant plus de 2 ou 3 dimensions.
+Comme mentionné un peu plus tôt, il peut paraître contre-intuitif de définir le nombre de groupes avant même de commencer l'analyse. Dans l'exemple décrit un peu plus haut, il était relativement facile de voir les 3 groupes apparents. Toutefois, il n'est pas toujours aussi aisé de voir de tels groupes ou il peut être difficile de les visualiser dans des situations ayant plus de 2 ou 3 dimensions.
 
-Il existe donc une méthode permettant de "deviner" le nombre de groupes "optimal". Nous avons introduit le clustering comme étant un technique permettant de regrouper certaines données ayant des caractéristiques similaires, mais également ayant des caractéristiques différentes de celles des autres groupes. Il est donc possible de 
+Il existe donc une méthode permettant de définir le nombre de groupes "optimal". Au départ, nous avons introduit le clustering comme étant un technique permettant de regrouper certaines données ayant des caractéristiques similaires. Il est donc possible d'obtenir une mesure nous permettant de valider à quel point les données à l'intérieur d'un même groupe sont similaires. Pour ce faire, nous calculerons la somme totale des carrés à l'intérieur des groupes. En gros, on somme les distances qui séparent chacune des données à l'intérieur d'un groupe avec le centroïde de ce même groupe. Pour avoir des groupes homogèenes, on souhaite évidemment que cette mesure soit petite puisque cela nous indique que les valeurs à l'intérieur d'un groupe sont relativement similaires. Cependant, il est important de comprendre que plus le nombre de groupes est grand, plus cette mesure devient petite. À l'ultime, si on définit un nombre de groupes égale aux nombre de données, chaque donnée deviendra son propre groupe et la mesure sera nulle. Pour trouver un nombre de groupe optimal, on calcule cette mesure pour différentes valeurs de k (nombre de groupes) et on fait un graphique de la mesure en fonction du nombre de groupes. À partir de là, on cherche ce qu'on appelle le "coude" de la droite, soit le point où on apperçoit une flexion. La figure 1, construite à partir de l'exemple illustré plus tôt, nous montre que le coude à lieu environ entre 2 et 3 groupes. Il serait donc approprié de garder 3 groupes.
+
+```{r coude, echo=FALSE, warning=FALSE, fig.align='center', fig.cap="Graphique en coude permettant de trouver le nombre de groupes optimale"}
+library(broom)
+clusters_analysis <- data.frame(k = 1:8) %>% 
+                          group_by(k) %>% 
+                          do(kclust = kmeans(data_init[,1:2], .$k)) %>% 
+                          group_by(k) %>%
+                          do(glance(.$kclust[[1]]))
+
+ggplot(clusters_analysis, aes(k, tot.withinss)) + 
+      geom_line(size = 2) +
+      geom_segment(aes(x=3.5, xend=2.5, y=1.5, yend=0.55), arrow = arrow(length = unit(0.5, "cm")), color = "red") +
+      scale_x_continuous(name = "Nombre de groupes (k)", breaks = c(1:9)) +
+      scale_y_continuous("Somme total des carrés à l'intérieur des groupes")
+```
+
 
 ### Application aux données de hockey
 
-Dans ce projet, nous utiliserons cet algorithme sur les statistiques individuelles des joueurs de hockey. C'est donc dire que dépendemment du nombre de statistiques inclut dans l'analyse, nous effectuerons le même genre de procédure d'illustré un peu plus haut, mais pas nécéssairement dans un espace à deux dimensions commme illustré dans l'exemple. Par exemple, si nous décidons d'inclure les buts, les passes, les mises en échec et les minutes de pémalités pour construire nos groupes de joueurs, nous travaillerons sur un espace à 4 dimensions (4 statistiques). Le principe de l'algorithme reste le même, il est juste plus difficile de visualiser les étapes une à une.
+Dans ce projet, nous appliquerons cet algorithme a des statistiques individuelles de joueurs de hockey. C'est donc dire que dépendemment du nombre de statistiques inclut dans l'analyse, nous effectuerons le même genre de procédure d'illustré un peu plus haut. Cependant, nous ne travaillerons pas nécéssairement dans un espace à deux dimensions commme illustré dans l'exemple. En effet, si nous décidons d'inclure comme statistiques: les buts, les passes, les mises en échec et les minutes de pénalités pour construire nos groupes de joueurs, nous travaillerons sur un espace à 4 dimensions (car 4 statistiques différentes). Le principe de l'algorithme reste le même, il est juste plus difficile de visualiser les étapes une à une. Toutefois, nous pourrons quand même utiliser la méthode de validation décrite plus haut pour définir le bon nombre de groupes et nous pourrons analyser les joueurs placés dans chacun des groupes et tirer des conclusions.
 
 ## Analyse des résultats
 
-Une fois que nous avons nettoyé les données et appliqué notre algorithme (méthode) à ceux-ci, il reste l'étape d'analyser ces résultats. Dans ce projet, nous tenterons de produire un outil flexible qui nous permettra de modifier certains paramètres et d'analyser les résultats selon ceux-ci.
+Une fois que les données ont été nettoyées et que nous aurons appliqué notre algorithme de clusering à celles-ci, il ne reste plus qu'à analyser les résultats. Dans ce projet, nous tenterons de produire un outil flexible qui nous permettra de modifier certains paramètres et d'analyser les différents résultats.
 
-Ainsi, nous bâtierons une application flexible dans laquelle nous insérerons notre algorithme et laisserons le choix à l'utilisateur de modifier certains paramètres comme:
+Nous bâtierons donc une application flexible dans laquelle nous implanterons notre algorithme et laisserons le choix à l'utilisateur de modifier certains paramètres comme ceux-ci:
 
 - Le nombre de groupes.
 - Les statistiques inclus dans l'analyse (buts, passes, points, mises en échec, etc).
 - Les joueurs considérés dans l'analyse (choix de l'équipe).
 - Les positions des joueurs analysés à l'intérieur des équipes sélectionnées.
 
-En gros, voici un aperçu du genre d'application que nous bâtierons:
+La figure 2 illustre un aperçu du genre d'application que nous bâtierons.
 
-![Example d'application permettant d'analyser les résultats de nos analyses](images/app_example.png)
+```{r example, echo=FALSE, fig.align='center', fig.cap="Example d'application permettant d'analyser les résultats de nos analyses", out.width='100%', out.extra = ""}
+knitr::include_graphics(path = "images/app_example.png")
+```
+
 
