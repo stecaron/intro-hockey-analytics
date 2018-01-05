@@ -37,7 +37,13 @@ Actuariat:
 
 ## Description du projet
 
-Comme mentionné dans la section précédente, ce projet a pour but de faire une brève introduction à certaines méthodes mathématiques et statistiques s'appliquant à des problèmes concrets. Le concept principal mis de l'avant dans ce projet s'appelle le "clustering". Le [*clustering*](http://bigdata-madesimple.com/what-is-clustering-in-data-mining/) est une méthode statistique permettant de regrouper des données dans différents groupes partageant des caractéristiques similaires à l'intérieur du groupe, mais différentes de celles des autres groupes. Il existe plusieurs méthodes de clustering, basées sur différents algorithmes, qui permettent d'obtenir des résultats distincts dépendemment du contexte. Ces méthodes ont plusieurs applications dans ces différents domaines:
+Dans ce projet, nous utiliserons les statistiques individuelles de la saison 2016-2017 de la LNH pour tenter de comprendre quels joueurs de hockey partagent des styles de jeu similaires. Ainsi, nous pourrions possiblement être en mesure de mieux comprendre des exemples comme:
+
+- Pourquoi Max Paciorrety et Philippe Danault se complète bien alors que Galchenyuk semble avoir moins de chimie avec le capitaine du CH?
+- Est-ce que le CH possède vraiment un attaquant comparable aux gros canons de la ligue?
+- Est-ce qu'un défenseur comme Jeff Petry se compare à des défenseurs plus défensifs ou offensifs?
+
+Pour tenter de répondre à ces questions, nous ferons une brève introduction de certaines méthodes mathématiques et statistiques. Le concept principal mis de l'avant dans ce projet s'appelle le "clustering". Le [*clustering*](http://bigdata-madesimple.com/what-is-clustering-in-data-mining/) est une méthode statistique permettant de regrouper des données dans différents groupes partageant des caractéristiques similaires à l'intérieur du groupe, mais différentes de celles des autres groupes. Il existe plusieurs méthodes de clustering, basées sur différents algorithmes, qui permettent d'obtenir des résultats distincts dépendemment du contexte. Ces méthodes ont d'ailleurs plusieurs applications dans d'autres domaines:
 
 - Marketing:
     - Pour faire la segmentation d'un marché et l'analyse de prospects potentiels.
@@ -50,7 +56,7 @@ Comme mentionné dans la section précédente, ce projet a pour but de faire une
     - Pour la recherche de caractéristiques présents chez les patients contractant un certain virus.
     - Pour la gestion des dépenses médicales (personnels, équipements, investissements, etc) en lien avec le type de demande de certains établissements médicaux.
 
-Dans ce projet, nous utiliserons une méthode de clustering précise, la méthode k-means. Cette méthode est décrite plus en détails dans les prochaines sections. Nous utiliserons cette méthode pour établir des styles de joueurs de hockey. En effet, nous utiliserons des statistiques de joueurs de hockey de la LNH pour établir des groupes de joueurs partageant des caractéristiques similaires selon ces mêmes statistiques.
+Dans notre cas, nous utiliserons une méthode de clustering précise, la méthode k-means. Cette méthode est décrite plus en détails dans les prochaines sections. Comme introduit un peu plus haut, nous utiliserons cette méthode pour établir des styles de joueurs de hockey. Finalement, nous pourrons utiliser les résultats de l'analyse et tenter de voir si certaines questions peuvent être clarifiées.
 
 ## Description des données
 
