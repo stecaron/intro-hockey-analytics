@@ -107,7 +107,7 @@ server <- function(input, output, session) {
   clusters_analysis <- reactive({
     clusters_analysis <- data.frame(k = 1:9) %>% 
                           group_by(k) %>% 
-                          do(kclust = kmeans(data_clustering(), .$k)) %>% 
+                          do(kclust = kmeans(data_clustering(), .$k, nstart = 100)) %>% 
                           group_by(k) %>%
                           do(glance(.$kclust[[1]]))
   })
