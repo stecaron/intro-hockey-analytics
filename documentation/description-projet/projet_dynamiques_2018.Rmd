@@ -190,7 +190,7 @@ ggplot(data, aes(x = x, y = y, color = groupe)) +
 
 #### Étape 6
 
-On recommence les deux dernières étapes jusqu'à temps que les groupes soient stables. Pour déterminer quand les groupes sont stables et quand il est souhaitable d'arrêter l'algorithme, on peut décider, par exemple, que si les groupes demeurent inchangés après 5 ou 10 itérations, on arrête. ---Si les groupes sont stables après une certaines itérations, ils ne changeront plus jamais...---
+On recommence les deux dernières étapes jusqu'à temps que les groupes soient stables. Une fois que les groupes sont stables, soit lorsqu'une itération supplémentaire ne produit aucun (ou peu) de changements dans les groupes, on arrête l'algorithme.
 
 Ce [*site*](http://www.onmyphd.com/?p=k-means.clustering) constitue un bel example supplémentaire du fonctionnement de l'algorithme à chaque itération.
 
@@ -204,7 +204,7 @@ Il existe donc une méthode permettant de définir le nombre de groupes "optimal
 library(broom)
 clusters_analysis <- data.frame(k = 1:8) %>% 
                           group_by(k) %>% 
-                          do(kclust = kmeans(data_init[,1:2], .$k)) %>% 
+                          do(kclust = kmeans(data_init[,1:2], .$k, nstart = 100)) %>% 
                           group_by(k) %>%
                           do(glance(.$kclust[[1]]))
 
@@ -222,9 +222,9 @@ Dans ce projet, nous appliquerons cet algorithme a des statistiques individuelle
 
 ## Analyse des résultats
 
-Une fois que les données ont été nettoyées et que nous aurons appliqué notre algorithme de clusering à celles-ci, il ne reste plus qu'à analyser les résultats. Dans ce projet, nous tenterons de produire un outil flexible qui nous permettra de modifier certains paramètres et d'analyser les différents résultats.
+Une fois que les données ont été nettoyées et que nous aurons appliqué notre algorithme de clustering à celles-ci, il ne reste plus qu'à analyser les résultats. Dans ce projet, nous tenterons de produire un outil flexible qui nous permettra de modifier certains paramètres et d'analyser les différents résultats.
 
-Nous bâtierons donc une application flexible dans laquelle nous implanterons notre algorithme et laisserons le choix à l'utilisateur de modifier certains paramètres comme ceux-ci:
+Nous bâtierons donc une application malléable dans laquelle nous implanterons notre algorithme et laisserons le choix à l'utilisateur de modifier certains paramètres comme ceux-ci:
 
 - Le nombre de groupes.
 - Les statistiques inclus dans l'analyse (buts, passes, points, mises en échec, etc).
